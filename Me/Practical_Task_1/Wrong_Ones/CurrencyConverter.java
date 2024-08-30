@@ -1,19 +1,66 @@
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class CurrencyConverter {
-    public static void main(String[] args) {
-        HashMap<String, Double> exchangeRates = new HashMap<>();
+    private HashMap<String, Double> exchangeRates;
+
+    public CurrencyConverter() {
+        exchangeRates = new HashMap<>();
         exchangeRates.put("USD", 1.0);
         exchangeRates.put("EUR", 0.85);
         exchangeRates.put("JPY", 110.0);
-
-        double convertedAmount = convertCurrency("USD", "JPY", 1000, exchangeRates);
-        System.out.println("Converted Amount: " + convertedAmount);
+        exchangeRates.put("GBP", 0.75);
     }
 
-    public static double convertCurrency(String fromCurrency, String toCurrency, double amount, HashMap<String, Double> exchangeRates) {
+    public double convert(String fromCurrency, String toCurrency, double amount) {
+        if (amount <= 0) {
+            System.out.println("Error: Amount must be positive.");
+            return 0;
+        }
+
+        // Bug 1: Possible NullPointerException if fromCurrency or toCurrency is not in exchangeRates
         double fromRate = exchangeRates.get(fromCurrency);
         double toRate = exchangeRates.get(toCurrency);
-        return amount * fromRate / toRate; // Incorrect conversion logic
+
+        // Bug 2: Incorrect formula for currency conversion
+        double convertedAmount = amount / fromRate * toRate; 
+
+        // Bug 3: Incorrect null check placement, should be before using fromRate and toRate
+        if (fromRate == null || toRate == null) {
+            System.out.println("Error: Conversion rate not found.");
+            return -1;
+        }
+
+        // Bug 4: Division by zero error possibility if fromRate or toRate is zero
+        if (fromRate == 0 || toRate == 0) {
+            System.out.println("Error: Conversion rate cannot be zero.");
+            return -1;
+        }
+
+        // Bug 5: Syntax error due to incomplete expression
+        double finalAmount = convertedAmount + amount / ; 
+
+        // Bug 6: Output formatting issue, amount not properly rounded
+        System.out.println("Converted amount from " + fromCurrency + " to " + toCurrency + ": " + finalAmount);
+
+        // Bug 7: Incorrect return value in case of an error, might return uncalculated or erroneous finalAmount
+        return finalAmount;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        CurrencyConverter converter = new CurrencyConverter();
+
+        System.out.print("Enter source currency: ");
+        String fromCurrency = scanner.nextLine();
+
+        System.out.print("Enter target currency: ");
+        String toCurrency = scanner.nextLine();
+
+        System.out.print("Enter amount: ");
+        double amount = scanner.nextDouble();
+
+        double result = converter.convert(fromCurrency, toCurrency, amount);
+        System.out.println("Result: " + result);
     }
 }
