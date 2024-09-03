@@ -1,0 +1,1 @@
+Principal: 10000, Rate: 5.5, Period: 10, Interest: 5500
