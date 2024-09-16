@@ -1,3 +1,4 @@
+package Practical_Task_2.Wrong_Ones.Java;
 public class BankAccount {
     public void calcInt(int bal, double rate, int time) {
         double intr = bal * rate * time;
@@ -20,3 +21,4 @@ public class BankAccount {
         int invalidType = "This is a string";  // This will cause a compile-time error
     }
 }
+

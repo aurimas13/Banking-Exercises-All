@@ -1,3 +1,4 @@
+package Practical_Task_3.Correct_Ones.Java;
 public class LoanCalculator {
     public static void main(String[] args) {
         try {
@@ -21,3 +22,4 @@ public class LoanCalculator {
         return interest;
     }
 }
+

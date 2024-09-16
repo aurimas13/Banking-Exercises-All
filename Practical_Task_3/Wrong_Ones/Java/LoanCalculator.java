@@ -21,3 +21,4 @@ class LoanCalculator {
 // Example usage
 $calculator = new LoanCalculator();
 $calculator->main();
+

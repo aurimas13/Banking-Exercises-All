@@ -14,3 +14,4 @@ def create_acc(nm, typ, bal):
 # Running the function
 account = create_acc("John Doe", "investment", -500)
 print("Created Account:", account)  # This will show both error messages and the account details
+

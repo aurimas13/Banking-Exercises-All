@@ -27,3 +27,4 @@ class bankops {
 $ops = new bankops();
 $ops->doLogin();
 $ops->someUndefinedMethod();  // This will trigger the runtime error
+

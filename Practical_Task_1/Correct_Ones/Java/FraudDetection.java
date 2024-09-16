@@ -1,3 +1,4 @@
+package Java;
 public class FraudDetection {
     public static void main(String[] args) {
         Transaction t = new Transaction(10000, "XYZ", "savings", true);
@@ -47,3 +48,4 @@ class Transaction {
         return flagged;
     }
 }
+

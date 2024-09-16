@@ -107,3 +107,4 @@ assess_loan_risk(application)
 # # # Example flawed loan risk assessment
 # # application = {'credit_score': 650, 'income': 50000, 'debt': 30000}
 # # assess_loan_risk(application)
+

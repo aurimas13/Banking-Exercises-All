@@ -14,3 +14,4 @@ def proc_trans(data):
 transactions = [{"id": 1, "amt": 15000}, {"id": 2, "amt": 5000}, {"id": 3, "amt": 12000}]
 result = proc_trans(transactions)
 print("Processed Transactions:", result)  # Might show an incomplete list
+

@@ -1,3 +1,4 @@
+package Java;
 public class InterestCalculator { // Correct naming convention
     public double calculateInterest(double principal, int rate, int time) {
         if (time <= 0 || rate <= 0) {
@@ -19,3 +20,4 @@ public class InterestCalculator { // Correct naming convention
         }
     }
 }
+

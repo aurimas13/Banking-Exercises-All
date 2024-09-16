@@ -12,3 +12,4 @@ function CheckSessionTimeout(lastActivityTime) {
 
 // Example usage
 console.log(CheckSessionTimeout(Date.now() - 400000));
+

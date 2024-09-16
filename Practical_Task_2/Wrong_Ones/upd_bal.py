@@ -11,3 +11,4 @@ def upd_bal(acc, amt):
 account = {"bal": 1000}
 updated_account = upd_bal(account, 500)
 print("Updated Account:", updated_account)  # Might not update correctly if wrong key
+

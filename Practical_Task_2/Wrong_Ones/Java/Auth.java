@@ -1,3 +1,4 @@
+package Practical_Task_2.Wrong_Ones.Java;
 public class Auth {
     public boolean login(String user, String pass) {
         if (user.equals("admin") && pass.equals("1234")) {
@@ -18,3 +19,4 @@ public class Auth {
         undefinedMethod();  // This will cause a compile-time error
     }
 }
+

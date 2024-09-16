@@ -1,6 +1,8 @@
+package Practical_Task_3.Correct_Ones.Java;
 // In terminal:
 
 // export API_KEY="1234567890"
+
 
 import java.util.Scanner;
 
@@ -33,3 +35,4 @@ public class APIAccess {
         return scanner.nextLine();
     }
 }
+

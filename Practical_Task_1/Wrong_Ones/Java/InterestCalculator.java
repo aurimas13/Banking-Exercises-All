@@ -1,3 +1,4 @@
+package Java;
 public class interestCalculator { // Incorrect naming convention, should be InterestCalculator
     public double calculateInterest(double principal, int rate, int time) {
         double interest = 0;
@@ -26,3 +27,5 @@ public class interestCalculator { // Incorrect naming convention, should be Inte
         System.out.println("Calculated Interest: " + interest);
     }
 }
+
+

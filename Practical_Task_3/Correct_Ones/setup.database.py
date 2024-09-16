@@ -28,3 +28,5 @@ def setup_database():
 
 setup_database()
 print("Database and users table created with dummy data.")
+
+

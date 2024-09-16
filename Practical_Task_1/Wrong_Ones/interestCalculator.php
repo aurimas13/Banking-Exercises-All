@@ -1,31 +1,37 @@
 <?php
 
-class interestCalculator { // Incorrect naming convention, should be InterestCalculator
+class InterestCalculator {
     public function calculateInterest($principal, $rate, $time) {
-        $interest = 0;
-        
-        // Bug: Incorrect handling of negative values and zero time/rate
-        if ($time > 0 && $rate > 0) {
-            $interest = ($principal * $rate * $time) / 100;
-        } elseif ($time < 0 || $rate < 0) { // Confusing logic, does not handle all cases correctly
-            echo "Error: This code has bugs. Time or rate cannot be negative.\n";
-            return -1;
-        } else {
-            echo "Error: Rate or time is zero, interest calculation incorrect.\n";
+        // Bug 1: Arithmetic error caused by division by zero (runtime error)
+        if ($rate == 0 || $time == 0) {
+            throw new ArithmeticError("Division by zero: Rate or time cannot be zero.\n");
         }
-        
-        // Inconsistent and unclear logic
-        if ($interest == 0) {
-            echo "Error: Interest calculation may be incorrect.\n";
+
+        // Bug 2: Throwing an uncaught exception for negative principal (exception handling error)
+        if ($principal < 0) {
+            throw new InvalidArgumentException("Principal cannot be negative.\n");
         }
-        
+
+        // Bug 3: Incorrect logic causing negative interest (logical error)
+        $interest = ($principal * $rate * $time) / -100;  // This will return negative interest
         return $interest;
     }
 }
 
-// Intentionally using the wrong class name to simulate a "cannot access" error
-$calculator = new InterestCalculator(); // This will cause an error because the class name is mismatched
-$interest = $calculator->calculateInterest(1000, 0, 2); // Test with zero rate
-echo "Calculated Interest: " . $interest . "\n";
+// Handling the instantiation and testing the calculateInterest function
+try {
+    $calculator = new InterestCalculator();
+    // Testing with a zero rate to trigger the ArithmeticError
+    $interest = $calculator->calculateInterest(1000, 0, 2);
+    echo "Calculated Interest: " . $interest . "\n";
+} catch (ArithmeticError $e) {
+    echo "Fatal ArithmeticError caught: " . $e->getMessage() . "\n";
+    echo "Stack trace:\n" . $e->getTraceAsString() . "\n";
+} catch (InvalidArgumentException $e) {
+    echo "InvalidArgumentException caught: " . $e->getMessage() . "\n";
+} catch (Exception $e) {
+    echo "General Exception caught: " . $e->getMessage() . "\n";
+}
 
 ?>
+

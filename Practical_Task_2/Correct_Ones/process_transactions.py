@@ -13,3 +13,4 @@ def process_transactions(transactions):
 transactions = [{"id": 1, "amount": 15000}, {"id": 2, "amount": 5000}, {"id": 3, "amount": 12000}]
 result = process_transactions(transactions)
 print("Processed Transactions:", result)
+

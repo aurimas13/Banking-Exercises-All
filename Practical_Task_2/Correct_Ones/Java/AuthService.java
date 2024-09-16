@@ -1,3 +1,4 @@
+package Java;
 public class AuthService {
     public boolean authenticate(String username, String password) {
         if (isValidCredentials(username, password)) {
@@ -18,3 +19,4 @@ public class AuthService {
         System.out.println("Login successful: " + loggedIn);  // Should print false
     }
 }
+

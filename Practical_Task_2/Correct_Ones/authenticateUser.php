@@ -50,3 +50,4 @@ $operations->login();
 
 // Removed the undefined method call to prevent runtime errors
 // $operations->someUndefinedMethod();  // This line is removed
+

@@ -11,3 +11,5 @@ def encrypt_password(password):
 
 password = "P@ssw0rd"
 print(f"Encrypted Password: {encrypt_password(password)}")
+
+

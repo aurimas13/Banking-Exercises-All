@@ -70,3 +70,4 @@ console.log(checkSessionTimeout(Date.now() - 400000));  // Should print the sequ
 
 // // Example usage
 // console.log(checkSessionTimeout(Date.now() - 400000));
+

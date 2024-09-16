@@ -26,3 +26,5 @@ getCurrencyRate(fromCurrency, toCurrency).then(rate => {
         console.log("Failed to fetch the exchange rate.");
     }
 });
+
+

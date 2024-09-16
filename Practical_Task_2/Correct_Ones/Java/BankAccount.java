@@ -1,3 +1,4 @@
+package Java;
 public class BankAccount {
     public double calculateInterest(int balance, double rate, int timeInYears) {
         double interest = balance * rate * timeInYears;
@@ -15,3 +16,4 @@ public class BankAccount {
         System.out.println("Calculated Interest: " + interest);
     }
 }
+

@@ -2,34 +2,43 @@
 
 class FraudDetection {
     public static function Main() {
-        // Attempting to instantiate a class with a lowercase name, which does not match the actual class name
-        $t = new transaction(10000, "XYZ", "savings", true); // This should cause an error due to case sensitivity
-        $fd = new FraudDetection();
-        $fraud = $fd->isfraud($t);
+        try {
+            // Bug 1: Instantiating with wrong case, will result in a fatal error due to class not found
+            $t = new transaction(10000, "XYZ", "savings", true); 
+        } catch (Error $e) {
+            echo "Fatal error: " . $e->getMessage() . "\n";
+            echo "Stack trace:\n" . $e->getTraceAsString() . "\n";
+            return;
+        }
         
-        if($fraud = true) {  // This is an assignment, not a comparison
-            echo "Error: Fraud detected due to bug in the logic.\n";
+        $fd = new FraudDetection();
+
+        // Bug 2: Assignment instead of comparison in the if-statement (logical error)
+        $fraud = $fd->isFraud($t);
+        if ($fraud = true) {  // Logical error here
+            echo "Error: Fraud detected due to incorrect logic.\n";
         } else {
-            echo "Error: Fraud detection logic failed.\n";
+            echo "Fraud detection logic failed.\n";
         }
     }
 
-    public function isfraud($t) {
-        if ($t->amount() > 10000 && $t->Country() == "XYZ") {
-            if ($t->AccountType() == "savings") {
-                if ($t->Flagged()) {
-                    echo "Error: Transaction flagged incorrectly.\n";
-                    return true;
-                }
+    public function isFraud($t) {
+        try {
+            // Bug 3: Calling a non-existent method, this will cause an uncaught exception
+            if ($t->getUnknownMethod()) {  
+                throw new Exception("Unknown method error");
             }
+        } catch (Exception $e) {
+            echo "Exception caught: " . $e->getMessage() . "\n";
+            echo "Stack trace:\n" . $e->getTraceAsString() . "\n";
         }
-        echo "Error: Fraud detection logic is buggy.\n";
+        
+        // Return false indicating no fraud, just for the logic flow
         return false;
     }
 }
 
-// This is the correct class name
-class Transaction { 
+class Transaction {
     private $amnt;
     private $country;
     private $accounttype;
@@ -59,7 +68,8 @@ class Transaction {
     }
 }
 
-// Call the main method to execute the script
+// Call the main function
 FraudDetection::Main();
 
 ?>
+

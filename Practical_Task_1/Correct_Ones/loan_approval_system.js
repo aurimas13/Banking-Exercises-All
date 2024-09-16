@@ -58,3 +58,4 @@ approveLoan(applicant);
 
 // const applicant = { income: 55000, debt: 5000, employment: 'full-time' };
 // approveLoan(applicant);
+

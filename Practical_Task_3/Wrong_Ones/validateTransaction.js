@@ -17,3 +17,5 @@ let amount = prompt("Enter transaction amount:");
 if (validateTransaction(amount)) {
     console.log("Transaction processed: $" + amount);
 }
+
+

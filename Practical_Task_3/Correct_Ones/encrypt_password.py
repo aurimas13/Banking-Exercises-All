@@ -35,3 +35,5 @@ else:
 # password = "P@ssw0rd"
 # hashed_password, salt = encrypt_password(password)
 # print(f"Encrypted Password: {hashed_password}\nSalt: {salt}")
+
+
